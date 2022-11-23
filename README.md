@@ -22,13 +22,4 @@ The codebase relies on three scripts:
 
 In the experiments folder, these are imported into executable scripts which serve as templates for the user. Their names follow the convention _{d}D{omega}-{batch size}x{epochs}-EC{order}_ and, once run, plots of the solutions and training metrics are saved under similar names too.
 
-For an explanation of error correction, please refer to the accompanying paper. The codebase is built to perform an arbitrary number of error corrections, but the plots will suffer if this number is too large. Practically, also, only a couple of error corrections is recommended.
-
-# Going further
-
-To solve a different Poisson’s equation, the user must make a few changes:
-
-* In _data.py_, change _f_ to reflect the new RHS of the equation. Change the corners of the hypercube domain in the _init_ method.
-* In _train.py_, change _phi_ to reflect the corresponding solution. If the new equation is non-zero (but constant) on the boundary, subtract this constant off the second part of the loss function.
-
-If the equation is non-constant on the boundary, or you wish to solve over a new domain, significant modifications are required.
+For an explanation of error correction, please refer to the accompanying paper. The codebase is built to perform an arbitrary number of error corrections, but the plots will suffer if this number is too large. Practically, also, only a couple of error corrections are recommended.
