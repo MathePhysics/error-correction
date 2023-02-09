@@ -1,9 +1,9 @@
 # error-correction
 Error correction of neural network solutions to Poisson’s equation.
 
-This codebase implements a modified deep Galerkin method to numerically solve differential equations with neural networks. The method is modified through the construction of error correction networks that can appreciably improve the accuracy of solution.
+This codebase implements a modified deep Galerkin method (Sirignano and Spiliopoulos, [2018](https://arxiv.org/abs/1708.07469)) to numerically solve differential equations with neural networks. The method is modified through the construction of error correction networks that can appreciably improve the accuracy of solution.
 
-Alongside error correction, sinusoidal representation networks (SIRENs) and random Fourier features are implemented to the same end. The validity of all such strategies is discussed in the accompanying paper ‘Enhancing Neural Network Differential Equation Solvers.’ 
+Alongside error correction, sinusoidal representation networks (Sitzmann et al., [2020](https://arxiv.org/abs/2006.09661)) and random Fourier features (Tancik et al., [2020](https://arxiv.org/abs/2006.10739)) are implemented to the same end. The validity of all such strategies is discussed in the accompanying paper (Wright, [2022](https://arxiv.org/abs/2301.13146)).
 
 # Poisson's equation
 This codebase solves a particular class of Poisson’s equations: 
@@ -17,8 +17,8 @@ in $\Omega=\[-\pi,\pi\]^d$ and $\phi=0$ on $\partial\Omega$. This class is chose
 The codebase relies on three scripts:
 
 1. _data.py_ samples the points upon which the neural network is trained and defines the equations which must be solved.
-2. _network.py_ initialises the SIREN.
-3. _train.py_ trains the SIREN, and defines the solution (for plotting purposes) and plotting functions.
+2. _network.py_ initialises the network.
+3. _train.py_ trains the network, and defines the solution (for plotting purposes) and plotting functions.
 
 In the experiments folder, these are imported into executable scripts which serve as templates for the user. Their names follow the convention _{d}D{omega}-{batch size}x{epochs}-EC{order}_ and, once run, plots of the solutions and training metrics are saved under similar names too.
 
